@@ -1,22 +1,16 @@
 package main
 
 import (
+	"context"
 	"fmt"
-	"net/http"
+	"golangRedis/application"
 )
 
 func main() {
-	server := &http.Server{
-		Addr:    ":8080",
-		Handler: http.HandlerFunc(basicHandler),
-	}
+	app := application.New()
 
-	err := server.ListenAndServe()
+	err := app.Start(context.TODO())
 	if err != nil {
-		fmt.Println("Failed to listen and serve: ", err)
+		fmt.Println("failed to start application: ", err)
 	}
-}
-
-func basicHandler(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Hello World!"))
 }
