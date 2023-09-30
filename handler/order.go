@@ -19,6 +19,7 @@ func (o *Order) List(writer http.ResponseWriter, request *http.Request) {
 func (o *Order) GetById(writer http.ResponseWriter, request *http.Request) {
 	fmt.Println("get order")
 }
+
 func (o *Order) UpdateById(writer http.ResponseWriter, request *http.Request) {
 	fmt.Println("update order")
 }
